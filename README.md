@@ -2,7 +2,11 @@
 # HUD-BUD DOCUMENTATION
 ## Annika Huprikar, Brandon Demkowicz
 
-### We created a web application in Python that performs web scraping of the Harvard University Dining Services (HUDS) website on the daily to access, read, and manipulate the menu data for appropriate placement in our HUD-BUD SQL Database on the backend. Functionally, this application allows users to set daily calorie/nutrition goals and eating preferences/allergies/restrictions according to the food tags offered by HUDS, to thus generate useful combinations of meals for a daily meal plan that matches the user's intended goals. This project grew out of Harvard University's CS50 course.
+### We created a web application in Python that performs web scraping of the Harvard University Dining Services (HUDS) website on the daily to access, read, and manipulate the menu data for appropriate placement in our HUD-BUD SQL Database on the backend. Functionally, this application allows users to set daily calorie/nutrition goals and eating preferences/allergies/restrictions according to the food tags offered by HUDS, to thus generate useful combinations of meals for a daily meal plan that matches the user's intended goals. 
+
+### Check out the DESIGN.md file for more about our web scraping algorithm and our generating meal plan algorithm. 
+
+### This project grew out of Harvard University's CS50 course.
 
 ### DEMO VIDEO LINK
 https://youtu.be/KLs-Tke6zDg
