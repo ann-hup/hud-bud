@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    My Profile
+{% endblock %}
+
+{% block main %}
+    <form action="/profile-edit" method="post">
+        <h3 class="current-cal"><b>Current Daily Calories:</b> {{ calories.calories }}</h3>
+        <div class="form-group">
+            <label for="calories">Change Calorie Goal:</label>
+            <input autocomplete="off" autofocus class="form-control" name="calories" placeholder="{{ calories.calories }}" type="number">
+        </div>
+        <div class="allergen-input">
+            <h3>Please select any allergens or dietary restrictions you have:</h3>
+            <div class="form-group checklist">
+                {% for allergen_state in allergen_states %}
+                    {% if 'No Allergens' != allergen_state.name %}
+                        {% if allergen_state.state == 1 %}
+                            <input type="checkbox" name="{{ allergen_state.name }}" value="{{ allergen_state.name }}" checked>
+                            <label for='{{ allergen_state.name }}'>{{ allergen_state.name }}</label><br>
+                        {% else %}
+                            <input type="checkbox" name="{{ allergen_state.name }}" value="{{ allergen_state.name }}">
+                            <label for='{{ allergen_state.name }}'>{{ allergen_state.name }}</label><br>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+                </select>
+            </div>
+            <button class="btn btn-primary" type="submit">Confirm</button>
+        </div>
+    </form>
+{% endblock %}

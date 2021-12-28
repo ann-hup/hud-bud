@@ -1,0 +1,180 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Plan
+{% endblock %}
+
+{% block main %}
+    <h1>{{ user.username }}'s Plan</h1><br><br>
+    <table border="1">
+        <thead>
+            {% if plan|length > 3 %}
+                <h3>Breakfast</h3>
+            {% else %}
+                <h3>Brunch</h3>
+            {% endif %}
+            <tr>
+               <th>Food</th>
+               <th>Calories</th>
+               <th>Protein (g)</th>
+               <th>Carbs (g)</th>
+               <th>Fat (g)</th>
+               <th>Saturated Fat (%)</th>
+               <th>Cholesterol (%)</th>
+               <th>Sodium (%)</th>
+               <th>Dietary Fiber (%)</th>
+               <th>Sugar (%)</th>
+               <th>Calcium (%)</th>
+               <th>Vitamin A (%)</th>
+               <th>Vitamin C (%)</th>
+               <th>Iron (%)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for food in plan[0] %}
+                <tr>
+                    <td>{{ food['name'] }}</td>
+                    <td>{{ food['calories'] }}</td>
+                    <td>{{ food['protein'] }}</td>
+                    <td>{{ food['carbs'] }}</td>
+                    <td>{{ food['fat'] }}</td>
+                    <td>{{ food['saturated_fat'] }}</td>
+                    <td>{{ food['cholesterol'] }}</td>
+                    <td>{{ food['sodium'] }}</td>
+                    <td>{{ food['dietary_fiber'] }}</td>
+                    <td>{{ food['sugars'] }}</td>
+                    <td>{{ food['calcium'] }}</td>
+                    <td>{{ food['vitamin_A'] }}</td>
+                    <td>{{ food['vitamin_C'] }}</td>
+                    <td>{{ food['iron'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <table border="1">
+        <thead>
+            {% if plan|length > 3 %}
+                <h3>Lunch</h3>
+            {% else %}
+                <h3>Dinner</h3>
+            {% endif %}
+            <tr>
+               <th>Food</th>
+               <th>Calories</th>
+               <th>Protein (g)</th>
+               <th>Carbs (g)</th>
+               <th>Fat (g)</th>
+               <th>Saturated Fat (%)</th>
+               <th>Cholesterol (%)</th>
+               <th>Sodium (%)</th>
+               <th>Dietary Fiber (%)</th>
+               <th>Sugar (%)</th>
+               <th>Calcium (%)</th>
+               <th>Vitamin A (%)</th>
+               <th>Vitamin C (%)</th>
+               <th>Iron (%)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for food in plan[1] %}
+                <tr>
+                    <td>{{ food['name'] }}</td>
+                    <td>{{ food['calories'] }}</td>
+                    <td>{{ food['protein'] }}</td>
+                    <td>{{ food['carbs'] }}</td>
+                    <td>{{ food['fat'] }}</td>
+                    <td>{{ food['saturated_fat'] }}</td>
+                    <td>{{ food['cholesterol'] }}</td>
+                    <td>{{ food['sodium'] }}</td>
+                    <td>{{ food['dietary_fiber'] }}</td>
+                    <td>{{ food['sugars'] }}</td>
+                    <td>{{ food['calcium'] }}</td>
+                    <td>{{ food['vitamin_A'] }}</td>
+                    <td>{{ food['vitamin_C'] }}</td>
+                    <td>{{ food['iron'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% if plan|length > 3 %}
+        <table border="1">
+            <thead>
+                <h3>Dinner</h3>
+                <tr>
+                   <th>Food</th>
+                   <th>Calories</th>
+                   <th>Protein (g)</th>
+                   <th>Carbs (g)</th>
+                   <th>Fat (g)</th>
+                   <th>Saturated Fat (%)</th>
+                   <th>Cholesterol (%)</th>
+                   <th>Sodium (%)</th>
+                   <th>Dietary Fiber (%)</th>
+                   <th>Sugar (%)</th>
+                   <th>Calcium (%)</th>
+                   <th>Vitamin A (%)</th>
+                   <th>Vitamin C (%)</th>
+                   <th>Iron (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for food in plan[2] %}
+                    <tr>
+                        <td>{{ food['name'] }}</td>
+                        <td>{{ food['calories'] }}</td>
+                        <td>{{ food['protein'] }}</td>
+                        <td>{{ food['carbs'] }}</td>
+                        <td>{{ food['fat'] }}</td>
+                        <td>{{ food['saturated_fat'] }}</td>
+                        <td>{{ food['cholesterol'] }}</td>
+                        <td>{{ food['sodium'] }}</td>
+                        <td>{{ food['dietary_fiber'] }}</td>
+                        <td>{{ food['sugars'] }}</td>
+                        <td>{{ food['calcium'] }}</td>
+                        <td>{{ food['vitamin_A'] }}</td>
+                        <td>{{ food['vitamin_C'] }}</td>
+                        <td>{{ food['iron'] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+    <table border="1">
+        <thead>
+            <h3>Summary</h3>
+            <tr>
+               <th>Calories</th>
+               <th>Protein (g)</th>
+               <th>Carbs (g)</th>
+               <th>Fat (g)</th>
+               <th>Saturated Fat (%)</th>
+               <th>Cholesterol (%)</th>
+               <th>Sodium (%)</th>
+               <th>Dietary Fiber (%)</th>
+               <th>Sugar (%)</th>
+               <th>Calcium (%)</th>
+               <th>Vitamin A (%)</th>
+               <th>Vitamin C (%)</th>
+               <th>Iron (%)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                {% if plan|length > 3 %}
+                    {% for value in plan[3] %}
+                        <td>
+                            {{ value }}
+                        </td>
+                    {% endfor %}
+                {% else %}
+                    {% for value in plan[2] %}
+                        <td>
+                            {{ value }}
+                        </td>
+                    {% endfor %}
+                {% endif %}
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}

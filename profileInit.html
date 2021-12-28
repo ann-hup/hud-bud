@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Profile Settings
+{% endblock %}
+
+{% block main %}
+    <div class="welcome-message">
+        <b>Welcome, {{ username.username }}!</b>
+        <br>
+        Before we continue, please tell us a little bit about yourself:
+    </div>
+
+    <form action="/profile-init" method="post">
+        <div class="form-group">
+            <label for="calories">Calorie Goal</label>
+            <input autocomplete="off" autofocus class="form-control" name="calories" placeholder="2000" type="number">
+        </div>
+        <div class="allergen-input">
+            <h3>Please select any allergens/dietary restrictions you have:</h3>
+            <div class="form-group">
+                {% for allergen in allergens %}
+                    {% if 'No Allergens' != allergen.name %}
+                        <input type="checkbox" name="{{ allergen.name }}" value="{{ allergen.name }}">
+                        <label for='{{ allergen.name }}'>{{ allergen.name }}</label><br>
+                    {% endif %}
+                {% endfor %}
+                </select>
+            </div>
+            <button class="btn btn-primary" type="submit">Confirm</button>
+        </div>
+    </form>
+{% endblock %}
